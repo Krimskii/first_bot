@@ -4,7 +4,14 @@ const TOKEN = '448727496:AAHLPsVhd272Elei-pM35kTKv6hVPuflHjQ'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
 
-bot.on('message', msg => {
-	bot.sendMessage(msg.chat.id, `Hello from Bot, bot says: "Hi, ${msg.from.first_name}"`)
-})
+bot.onText(/\/start/, msg =>{
+	const text = `Добрый день, ${msg.from.first_name}\nЧто вы хотите?`
 
+	bot.sendMessage(msg.chat.id, text, {
+		reply_markup: {
+			keyboard: [
+				['Новости', 'Обращение']
+			]
+		}
+	})
+})
