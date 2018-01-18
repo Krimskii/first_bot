@@ -18,7 +18,7 @@ bot.onText(/\/start/, msg => {
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
 			keyboard: [
-				['KB.news', 'KB.request']
+				[KB.news, KB.request]
 			]
 		}
 	})
