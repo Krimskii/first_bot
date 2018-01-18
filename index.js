@@ -36,7 +36,7 @@ bot.on('message', msg => {
 			bot.sendMessage(msg.chat.id, `Что вы хотите`, {
 				reply_markup: {
 				keyboard: [
-					['KB.news', 'KB.request']
+					[KB.news, KB.request]
 					]
 				}
 			})
