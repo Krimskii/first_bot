@@ -13,15 +13,7 @@ const KB = {
 }
 
 bot.onText(/\/start/, msg => {
-	const text = `Добрый день, ${msg.from.first_name}\nЧто вы хотите?`
-
-	bot.sendMessage(msg.chat.id, text, {
-		reply_markup: {
-			keyboard: [
-				[KB.news, KB.request]
-			]
-		}
-	})
+	sendGreeting(msg)
 })
 
 bot.on('message', msg => {
@@ -33,13 +25,7 @@ bot.on('message', msg => {
 		case KB.request:
 			break
 		case KB.back:
-			bot.sendMessage(msg.chat.id, `Что вы хотите`, {
-				reply_markup: {
-				keyboard: [
-					[KB.news, KB.request]
-					]
-				}
-			})
+			sendGreeting(msg, false)
 			break
 		case KB.car:
 		case KB.cat:
@@ -57,4 +43,18 @@ function sendNewsScreen(chatId) {
 			]
 		}
 	})
+}
+
+function sendGreeting(msg, sayHello = true) {
+	const text = sayHello
+	? `Добрый день, ${msg.from.first_name}\nЧто вы хотите?`
+	: `Что вы хотите сделать?`
+
+	bot.sendMessage(msg.chat.id, text, {
+		reply_markup: {
+			keyboard: [
+				[KB.news, KB.request]
+			]
+		}
+	})	
 }
