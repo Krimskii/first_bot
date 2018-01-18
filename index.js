@@ -7,9 +7,6 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 const KB = {
 	news: 'Новости',
 	request: 'Обращение',
-	cat: "КотЭ",
-	car: "Машина",
-	back: "Назад"
 }
 
 bot.onText(/\/start/, msg =>{
@@ -27,32 +24,8 @@ bot.onText(/\/start/, msg =>{
 bot.on('message', msg => {
 	switch (msg.text) {
 		case KB.news:
-			sendPictureScreen(msg.chat.id)
 			break
 		case KB.request
 			break
-		case KB.back:
-			bot.sendMessage(msg.chat.id, `Что вы хотите??`, {
-				reply_markup: {
-			keyboard: [
-				['KB.news', 'KB.request']
-			]
-		}
-			})
-			break
-		case KB.car
-		case KB.cat
-			break
 	}
 })
-
-function sendPictureScreen(chatId) {
-	bot.sendMessage(chatId, `Выберите тип: `, {
-		reply_markup : {
-			keyboard: [
-				[KB.car, KB.cat]
-				[KB.back]
-			]
-		}
-	})
-}
