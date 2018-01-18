@@ -9,7 +9,7 @@ const KB = {
 	request: 'Обращение',
 }
 
-bot.onText(/\/start/, msg =>{
+bot.onText(/\/start/, msg => {
 	const text = `Добрый день, ${msg.from.first_name}\nЧто вы хотите?`
 
 	bot.sendMessage(msg.chat.id, text, {
@@ -21,11 +21,3 @@ bot.onText(/\/start/, msg =>{
 	})
 })
 
-bot.on('message', msg => {
-	switch (msg.text) {
-		case KB.news:
-			break
-		case KB.request
-			break
-	}
-})
