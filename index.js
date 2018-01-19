@@ -7,8 +7,8 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 const KB = {
 	news: 'Новости',
 	request: 'Обращение',
-	cat: 'КотЭ',
-	car: 'Машина',
+	claim: 'Жалоба',
+	propsal: 'Предложение',
 	back: 'Назад'
 }
 
@@ -20,35 +20,24 @@ bot.on('message', msg => {
 
 	switch (msg.text) {
 		case KB.news:
-			sendNewsScreen(msg.chat.id)
 			break
 		case KB.request:
+			sendRequestScreen(msg.chat.id)
 			break
 		case KB.back:
 			sendGreeting(msg, false)
 			break
-		case KB.car:
-		case KB.cat:
+		case KB.propsal:
+		case KB.claim:
 			break
 	}
 
 })
 
-function sendNewsScreen(chatId) {
-	bot.sendMessage(chatId, `Выберите тип новостей: `, {
-		reply_markup: {
-			keyboard: [
-				[KB.car, KB.cat],
-				[KB.back]
-			]
-		}
-	})
-}
-
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
-	? `Добрый день, ${msg.from.first_name}\nЧто вы хотите?`
-	: `Что вы хотите сделать?`
+	? `${msg.from.first_name}, добро пожаловать в бот-канал общественной приемной акимата Алматы.`
+	: `Воспользуйтесь меню`
 
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
@@ -57,4 +46,27 @@ function sendGreeting(msg, sayHello = true) {
 			]
 		}
 	})	
+}
+
+function sendRequestScreen(chatId) {
+	bot.sendMessage(chatId, `Выберите тип обращения: `, {
+		reply_markup: {
+			keyboard: [
+				[KB.propsal, KB.claim],
+				[KB.back]
+			]
+		}
+	})
+}
+
+
+function sendNewsScreen(chatId) {
+	bot.sendMessage(chatId, `Выберите тип новостей: `, {
+		reply_markup: {
+			keyboard: [
+				[KB.propsal, KB.claim],
+				[KB.back]
+			]
+		}
+	})
 }
