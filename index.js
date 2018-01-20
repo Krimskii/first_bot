@@ -31,7 +31,6 @@ bot.on('message', msg => {
 		case KB.claim:
 			break
 	}
-
 })
 
 function sendGreeting(msg, sayHello = true) {
@@ -43,7 +42,8 @@ function sendGreeting(msg, sayHello = true) {
 		reply_markup: {
 			keyboard: [
 				[KB.news, KB.request]
-			]
+			],
+			resize_keyboard: true
 		}
 	})	
 }
@@ -53,7 +53,8 @@ function sendRequestScreen(chatId) {
 		reply_markup: {
 			keyboard: [
 				[KB.propsal, KB.claim],
-				[KB.back]
+				[KB.back],
+				resize_keyboard: true
 			]
 		}
 	})
@@ -65,7 +66,8 @@ function sendNewsScreen(chatId) {
 		reply_markup: {
 			keyboard: [
 				[KB.propsal, KB.claim],
-				[KB.back]
+				[KB.back],
+				resize_keyboard: true
 			]
 		}
 	})
