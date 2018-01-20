@@ -53,9 +53,9 @@ function sendRequestScreen(chatId) {
 		reply_markup: {
 			keyboard: [
 				[KB.propsal, KB.claim],
-				[KB.back],
-				resize_keyboard: true
-			]
+				[KB.back]
+			],
+			resize_keyboard: true
 		}
 	})
 }
@@ -66,9 +66,9 @@ function sendNewsScreen(chatId) {
 		reply_markup: {
 			keyboard: [
 				[KB.propsal, KB.claim],
-				[KB.back],
-				resize_keyboard: true
-			]
+				[KB.back]
+			],
+			resize_keyboard: true
 		}
 	})
 }
