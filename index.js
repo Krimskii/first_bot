@@ -39,7 +39,7 @@ bot.on('message', msg => {
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
 	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
-	: `Воспользуйтесь меню` + emoji.get('coffee')
+	: `Воспользуйтесь меню` + emoji.get('point_up_2')
 
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
