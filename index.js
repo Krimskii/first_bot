@@ -20,6 +20,10 @@ bot.onText(/\/start/, msg => {
 	sendGreeting(msg)
 })
 
+bot.onText(/\/sendpic/, (msg) => {
+	bot.sendPhoto(msg.chat.id, "https://open-almaty.kz/sites/all/themes/scholarly_lite/logo.svg")
+})
+
 bot.on('message', msg => {
 
 	switch (msg.text) {
