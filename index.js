@@ -32,8 +32,10 @@ bot.on('message', msg => {
 		case KB.back:
 			sendGreeting(msg, false)
 			break
-		case KB.checkRequest:
 		case KB.sendRequest:
+			applyRequestScreen(msg.chat.id)
+			break
+		case KB.checkRequest:		
 			break
 		case KB.readNews:
 		case KB.subscribeNews:
@@ -52,7 +54,7 @@ function sendGreeting(msg, sayHello = true) {
 			keyboard: [
 				[KB.request, KB.news]
 			],
-			resize_keyboard: true
+			resize_keyboard: true,
 		}
 	})	
 }
@@ -80,4 +82,15 @@ function sendNewsScreen(chatId) {
 			resize_keyboard: true,
 		}
 	})
+}
+
+function applyRequestScreen(chatId) {
+	bot.sendMessage(chatId, `Мой номер телефона`, {
+		reply_markup: {
+			keyboard: [[{
+				text: "Согласен",
+				request_contact: true}], 
+				["Отменить"]]
+			}
+		})
 }
