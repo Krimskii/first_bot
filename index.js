@@ -8,7 +8,7 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 
 const KB = {
 	news: 'Новости',
-	request: 'emoji.heart' + 'Обращение',
+	request: 'Обращение',
 	sendRequest: 'Подать обращение',
 	checkRequest: 'Проверить статус',
 	back: 'Назад'
@@ -39,7 +39,7 @@ bot.on('message', msg => {
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
 	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
-	: `Воспользуйтесь меню`
+	: `Воспользуйтесь меню` + emoji.get('coffee')
 
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
