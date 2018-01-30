@@ -52,7 +52,7 @@ function sendGreeting(msg, sayHello = true) {
 }
 
 function sendRequestScreen(chatId) {
-	bot.sendMessage(chatId, `Что вы хотите сделать?` + emoji.get('neckbeard'), {
+	bot.sendMessage(chatId, `Что вы хотите сделать?`, {
 		reply_markup: {
 			keyboard: [
 				[KB.sendRequest, KB.checkRequest],
