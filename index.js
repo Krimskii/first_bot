@@ -90,11 +90,10 @@ function applyRequestScreen(chatId) {
 			keyboard: [[{
 				text: "Телефон",
 				request_contact: true}], 
-					[{
-					text: "Местоположение",
-					request_location: true}]
-					],
-					[KB.back]
+			[{
+				text: "Местоположение",
+				request_location: true}],
+				[KB.back]],
 				resize_keyboard: true,
 			}
 		})
