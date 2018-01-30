@@ -55,11 +55,9 @@ function sendRequestScreen(chatId) {
 			keyboard: [
 				[KB.sendRequest, KB.checkRequest],
 				[KB.back]
-			],
-			resize_keyboard: true,
+			]
 		}
 		
 	})
 }
 
-function 
