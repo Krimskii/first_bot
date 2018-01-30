@@ -46,7 +46,7 @@ bot.on('message', msg => {
 
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
-	? `Добрый день, ${msg.from.last_name} ${msg.from.first_name}!\nВас приветствует БОТ общественной приемной акимата г.Алматы`
+	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
 	: `Воспользуйтесь меню` + emoji.get('point_up_2')
 
 	bot.sendMessage(msg.chat.id, text, {
@@ -85,7 +85,7 @@ function sendNewsScreen(chatId) {
 }
 
 function applyRequestScreen(chatId) {
-	bot.sendMessage(chatId, `Прикрепити ваши данные`, {
+	bot.sendMessage(chatId, `Прикрепите Ваши данные`, {
 		reply_markup: {
 			keyboard: [[{
 				text: "Телефон",
