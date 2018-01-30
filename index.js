@@ -1,5 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api')
 
+const emoji = require('node-emoji')
+
 const TOKEN = '448727496:AAHLPsVhd272Elei-pM35kTKv6hVPuflHjQ'
 
 const bot = new TelegramBot(TOKEN, {polling: true})
@@ -42,8 +44,7 @@ function sendGreeting(msg, sayHello = true) {
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
 			keyboard: [
-				[KB.request, KB.news],
-				[KB.back]
+				[emoji.heart + KB.request, KB.news]
 			],
 			resize_keyboard: true
 		}
