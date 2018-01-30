@@ -17,8 +17,7 @@ const KB = {
 }
 
 bot.onText(/\/start/, msg => {
-	sendGreeting(msg),
-	bot.sendPhoto(msg.chat.id, "https://open-almaty.kz/sites/all/themes/scholarly_lite/logo.svg"
+	sendGreeting(msg)
 })
 
 bot.on('message', msg => {
@@ -49,6 +48,8 @@ function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
 	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
 	: `Воспользуйтесь меню` + emoji.get('point_up_2')
+
+	bot.sendPhoto(msg.chat.id, "https://open-almaty.kz/sites/all/themes/scholarly_lite/logo.svg")
 
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
