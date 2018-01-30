@@ -44,7 +44,8 @@ function sendGreeting(msg, sayHello = true) {
 			keyboard: [
 				[KB.request, KB.news],
 				[KB.back]
-			]
+			],
+			resize_keyboard: true
 		}
 	})	
 }
