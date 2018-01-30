@@ -34,27 +34,31 @@ bot.on('message', msg => {
 
 })
 
-function sendRequestScreen(chatId) {
-	bot.sendMessage(chatId, `Выберите тип новостей: `, {
+function sendGreeting(msg, sayHello = true) {
+	const text = sayHello
+	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
+	: `Воспользуйтесь меню`
+
+	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
 			keyboard: [
-				[KB.checkRequest, KB.sendRequest],
+				[KB.request, KB.news],
+				[KB.back]
+			]
+		}
+	})	
+}
+
+function sendRequestScreen(chatId) {
+	bot.sendMessage(chatId, `Что вы хотите сделать? `, {
+		reply_markup: {
+			resize_keyboard: true,
+			keyboard: [
+				[KB.sendRequest, KB.checkRequest],
 				[KB.back]
 			]
 		}
 	})
 }
 
-function sendGreeting(msg, sayHello = true) {
-	const text = sayHello
-	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
-	: `Выберите ваше действие`
-
-	bot.sendMessage(msg.chat.id, text, {
-		reply_markup: {
-			keyboard: [
-				[KB.news, KB.request]
-			]
-		}
-	})	
-}
+function 
