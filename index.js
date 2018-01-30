@@ -8,7 +8,7 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 
 const KB = {
 	news: 'Новости',
-	request: emoji.heart + 'Обращение',
+	request: 'emoji.heart' + 'Обращение',
 	sendRequest: 'Подать обращение',
 	checkRequest: 'Проверить статус',
 	back: 'Назад'
