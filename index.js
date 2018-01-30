@@ -85,12 +85,16 @@ function sendNewsScreen(chatId) {
 }
 
 function applyRequestScreen(chatId) {
-	bot.sendMessage(chatId, `Мой номер телефона`, {
+	bot.sendMessage(chatId, `Прикрепити ваши данные`, {
 		reply_markup: {
 			keyboard: [[{
-				text: "Согласен",
+				text: "Телефон",
 				request_contact: true}], 
-				["Отменить"]],
+					[{
+					text: "Местоположение",
+					request_location: true}]
+					],
+					[KB.back]
 				resize_keyboard: true,
 			}
 		})
