@@ -90,7 +90,8 @@ function applyRequestScreen(chatId) {
 			keyboard: [[{
 				text: "Согласен",
 				request_contact: true}], 
-				["Отменить"]]
+				["Отменить"]],
+				resize_keyboard: true,
 			}
 		})
 }
