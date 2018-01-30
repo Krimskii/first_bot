@@ -9,8 +9,10 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 const KB = {
 	news: emoji.get('newspaper') + ' Новости',
 	request: emoji.get('envelope') + ' Обращение',
-	sendRequest: emoji.get('clipboard') + 'Подать обращение',
-	checkRequest: emoji.get('postbox') + 'Проверить статус',
+	sendRequest: emoji.get('clipboard') + 'Отправить',
+	checkRequest: emoji.get('postbox') + 'Проверить',
+	readNews: emoji.get('newspaper') + ' Читать',
+	subscribeNews: emoji.get('pencil') + 'Подписаться',
 	back: emoji.get('back') + ' Назад'
 }
 
@@ -25,12 +27,16 @@ bot.on('message', msg => {
 			sendRequestScreen(msg.chat.id)
 			break
 		case KB.news:
+			sendNewsScreen(msg.chat.id)
 			break
 		case KB.back:
 			sendGreeting(msg, false)
 			break
 		case KB.checkRequest:
 		case KB.sendRequest:
+			break
+		case KB.readNews:
+		case KB.subscribeNews:
 			break
 	}
 
@@ -64,3 +70,14 @@ function sendRequestScreen(chatId) {
 	})
 }
 
+function sendNewsScreen(chatId) {
+	bot.sendMessage(chatId, `Будьте в курсе самых свежих новостей администрации Алматы`, {
+		reply_markup: {
+			keyboard: [
+				[KB.readNews, KB.subscribeNews],
+				[KB.back]
+			],
+			resize_keyboard: true,
+		}
+	})
+}
