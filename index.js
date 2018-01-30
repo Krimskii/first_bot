@@ -19,10 +19,10 @@ bot.onText(/\/start/, msg => {
 bot.on('message', msg => {
 
 	switch (msg.text) {
-		case KB.news:
+		case KB.request:
 			sendRequestScreen(msg.chat.id)
 			break
-		case KB.request:
+		case KB.news:
 			break
 		case KB.back:
 			sendGreeting(msg, false)
@@ -47,8 +47,8 @@ function sendRequestScreen(chatId) {
 
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
-	? `Добрый день, ${msg.from.first_name}\nЧто вы хотите?`
-	: `Что вы хотите сделать?`
+	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
+	: `Выберите ваше действие`
 
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
