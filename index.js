@@ -8,7 +8,7 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 
 const KB = {
 	news: 'Новости',
-	request: 'Обращение',
+	request: emoji.heart + 'Обращение',
 	sendRequest: 'Подать обращение',
 	checkRequest: 'Проверить статус',
 	back: 'Назад'
@@ -44,7 +44,7 @@ function sendGreeting(msg, sayHello = true) {
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
 			keyboard: [
-				[emoji.heart + KB.request, KB.news]
+				[KB.request, KB.news]
 			],
 			resize_keyboard: true
 		}
