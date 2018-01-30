@@ -52,12 +52,13 @@ function sendGreeting(msg, sayHello = true) {
 function sendRequestScreen(chatId) {
 	bot.sendMessage(chatId, `Что вы хотите сделать? `, {
 		reply_markup: {
-			resize_keyboard: true,
 			keyboard: [
 				[KB.sendRequest, KB.checkRequest],
 				[KB.back]
-			]
+			],
+			resize_keyboard: true,
 		}
+		
 	})
 }
 
