@@ -7,11 +7,11 @@ const TOKEN = '448727496:AAHLPsVhd272Elei-pM35kTKv6hVPuflHjQ'
 const bot = new TelegramBot(TOKEN, {polling: true})
 
 const KB = {
-	news: 'Новости',
-	request: emoji.get('coffee') + 'Обращение',
-	sendRequest: 'Подать обращение',
-	checkRequest: 'Проверить статус',
-	back: 'Назад'
+	news: emoji.get('newspaper') + ' Новости',
+	request: emoji.get('envelope') + ' Обращение',
+	sendRequest: emoji.get('clipboard') + 'Подать обращение',
+	checkRequest: emoji.get('postbox') + 'Проверить статус',
+	back: emoji.get('back') + ' Назад'
 }
 
 bot.onText(/\/start/, msg => {
