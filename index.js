@@ -104,8 +104,8 @@ bot.onText(/\/question/, function(msg, match) {
   var keyboardStr = JSON.stringify({
       inline_keyboard: [
         [
-          [{text:'Поля заявки',callback_data:'fields'}],
-          [{text:'Портал',url:"https://open-almaty.kz/",callback_data:'another'}]
+          {text:'Поля заявки',callback_data:'fields'},
+          {text:'Портал',url:'https://open-almaty.kz/'}
         ]
       ]
   });
