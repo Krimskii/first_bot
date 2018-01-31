@@ -99,13 +99,13 @@ function applyRequestScreen(chatId) {
 }
 
 bot.onText(/\/question/, function(msg, match) {
-  var text = 'What is your favorite meal?';
+  var text = 'Что будет в inline menu?';
  
   var keyboardStr = JSON.stringify({
       inline_keyboard: [
         [
-          {text:'Sandwich',callback_data:'sandwich'},
-          {text:'A juicy steak',callback_data:'steak'}
+          {text:'Поля заявки',callback_data:'fields'},
+          {text:'Отдельные данные',callback_data:'another'}
         ]
       ]
   });
