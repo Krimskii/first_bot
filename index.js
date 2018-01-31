@@ -40,7 +40,6 @@ bot.on('message', msg => {
 		case KB.readNews:
 		case KB.subscribeNews:
 			break
-
 	}
 
 })
@@ -98,3 +97,19 @@ function applyRequestScreen(chatId) {
 			}
 		})
 }
+
+bot.onText(/\/question/, function(msg, match) {
+  var text = 'What is your favorite meal?';
+ 
+  var keyboardStr = JSON.stringify({
+      inline_keyboard: [
+        [
+          {text:'Sandwich',callback_data:'sandwich'},
+          {text:'A juicy steak',callback_data:'steak'}
+        ]
+      ]
+  });
+ 
+  var keyboard = {reply_markup: JSON.parse(keyboardStr)};
+  bot.sendMessage(msg.chat.id, text, keyboard);
+});
