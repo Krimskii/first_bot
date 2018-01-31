@@ -105,7 +105,7 @@ bot.onText(/\/question/, function(msg, match) {
       inline_keyboard: [
         [
           [{text:'Поля заявки',callback_data:'fields'}],
-          [{text:'Отдельные данные',callback_data:'another'}]
+          [{text:'Портал',url:'https://open-almaty.kz/',callback_data:'another'}]
         ]
       ]
   });
