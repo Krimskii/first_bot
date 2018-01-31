@@ -87,7 +87,7 @@ function sendNewsScreen(chatId) {
 function applyRequestScreen(chatId) {
 	bot.sendMessage(chatId, `Прикрепите Ваши данные`, {
 		reply_markup: {
-			inline_keyboard: [[{
+			keyboard: [[{
 				text: "Телефон",
 				request_contact: true}], 
 			[{
