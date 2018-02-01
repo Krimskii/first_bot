@@ -13,7 +13,7 @@ const KB = {
 	sendRequest: emoji.get('clipboard') + 'Отправить',
 	checkRequest: emoji.get('postbox') + 'Проверить',
 	readNews: emoji.get('newspaper') + ' Читать',
-	subscribeNews: emoji.get('pencil') + 'Подписаться',
+	subscribeNews: emoji.get('pencil') + ' Подписаться',
 	back: emoji.get('back') + ' Назад'
 }
 
