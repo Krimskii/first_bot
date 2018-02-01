@@ -52,7 +52,7 @@ function sendGreeting(msg, sayHello = true) {
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
 			keyboard: [
-				[KB.request, KB.news]
+				[KB.request], [KB.news]
 			],
 			resize_keyboard: true,
 		}
