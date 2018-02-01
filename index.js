@@ -119,7 +119,7 @@ bot.onText(/\/question/, function(msg, match) {
   bot.sendMessage(msg.chat.id, text, keyboard);
 });
 
-bot.onText(/\/help/, function(msg, match) {
+bot.onText(/\/instruction/, function(msg, match) {
   var text = 'Что будет в inline menu?';
  
   var keyboardStr = JSON.stringify({
