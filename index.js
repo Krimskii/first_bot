@@ -14,8 +14,8 @@ const KB = {
 	checkRequest: emoji.get('postbox') + 'Проверить',
 	readNews: emoji.get('newspaper') + ' Читать',
 	subscribeNews: emoji.get('pencil') + ' Подписаться',
-	back: emoji.get('back') + ' Назад',
-	backward: emoji.get('arrow_backward')
+	home: emoji.get('house') + ' На главную',
+	backward: emoji.get('back')+ ' Назад'
 }
 
 bot.onText(/\/start/, msg => {
@@ -31,7 +31,7 @@ bot.on('message', msg => {
 		case KB.news:
 			sendNewsScreen(msg.chat.id)
 			break
-		case KB.back:
+		case KB.home:
 			sendGreeting(msg, false)
 			break
 		case KB.sendRequest:
@@ -68,7 +68,7 @@ function sendRequestScreen(chatId) {
 		reply_markup: {
 			keyboard: [
 				[KB.sendRequest, KB.checkRequest],
-				[KB.back]
+				[KB.home]
 			],
 			resize_keyboard: true,
 		}
@@ -81,7 +81,7 @@ function sendNewsScreen(chatId) {
 		reply_markup: {
 			keyboard: [
 				[KB.readNews, KB.subscribeNews],
-				[KB.back]
+				[KB.home]
 			],
 			resize_keyboard: true,
 		}
