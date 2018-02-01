@@ -51,7 +51,7 @@ bot.on('message', msg => {
 
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
-	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы`
+	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы\nВаш ID ${msg.from.id}`
 	: `Воспользуйтесь меню` + emoji.get('point_down')
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
@@ -119,8 +119,25 @@ bot.onText(/\/question/, function(msg, match) {
   bot.sendMessage(msg.chat.id, text, keyboard);
 });
 
-bot.onText(/\/sendpic/, (msg) => {
+/*
 
-bot.sendPhoto(msg.chat.id,"https://open-almaty.kz/sites/all/themes/scholarly_lite/logo.svg" );
-    
+bot.onText(/\/sendpic/, (msg) => {
+	bot.sendPhoto(msg.chat.id,"https://telegram.org/img/t_logo.png" );
 });
+
+function applyRequestScreen(chatId) {
+	bot.sendMessage(chatId, `Прикрепите Ваши данные`, {
+		reply_markup: {
+			keyboard: [[{
+				text: "Телефон",
+				request_contact: true}], 
+			[{
+				text: "Местоположение",
+				request_location: true}],
+				[KB.backward]],
+				resize_keyboard: true,
+			}
+		})
+}
+
+*/
