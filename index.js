@@ -14,7 +14,8 @@ const KB = {
 	checkRequest: emoji.get('postbox') + 'Проверить',
 	readNews: emoji.get('newspaper') + ' Читать',
 	subscribeNews: emoji.get('pencil') + ' Подписаться',
-	back: emoji.get('back') + ' Назад'
+	back: emoji.get('back') + ' Назад',
+	backward: emoji.get('arrow_backward')
 }
 
 bot.onText(/\/start/, msg => {
@@ -40,6 +41,9 @@ bot.on('message', msg => {
 			break
 		case KB.readNews:
 		case KB.subscribeNews:
+			break
+		case KB.backward:
+			sendRequestScreen(msg.chat.id)
 			break
 	}
 
@@ -93,7 +97,7 @@ function applyRequestScreen(chatId) {
 			[{
 				text: "Местоположение",
 				request_location: true}],
-				[KB.back]],
+				[KB.backward]],
 				resize_keyboard: true,
 			}
 		})
