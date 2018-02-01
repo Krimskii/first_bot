@@ -21,6 +21,10 @@ bot.onText(/\/start/, msg => {
 	sendGreeting(msg)
 })
 
+bot.onText(/\/keyboard/, msg => {
+	applyFormScreen(msg)
+})
+
 bot.on('message', msg => {
 
 	switch (msg.text) {
@@ -35,7 +39,6 @@ bot.on('message', msg => {
 			break
 		case KB.sendRequest:
 			applyRequestScreen(msg.chat.id)
-			applyFormScreen(msg.chat.id)
 			break
 		case KB.checkRequest:		
 			break
@@ -101,7 +104,7 @@ function applyRequestScreen(chatId) {
 }
 
 function applyFormScreen(chatId) {
-  var text = 'Что будет в inline menu?';
+  var text = 'Что будет в inline keyboard?';
  
   var keyboardStr = JSON.stringify({
       inline_keyboard: [
