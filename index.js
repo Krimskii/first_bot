@@ -110,8 +110,7 @@ bot.onText(/\/question/, function(msg, match) {
       inline_keyboard: [
         [
           {text:'Запрос',callback_data:'fields'},
-          {text:'Ссылка',url:'https://open-almaty.kz/'},
-          {text:'Номер телефона', request_contact: 'true'}
+          {text:'Ссылка',url:'https://open-almaty.kz/'}
         ]
       ]
   });
@@ -120,3 +119,8 @@ bot.onText(/\/question/, function(msg, match) {
   bot.sendMessage(msg.chat.id, text, keyboard);
 });
 
+bot.onText(/\/sendpic/, (msg) => {
+
+bot.sendPhoto(msg.chat.id,"https://open-almaty.kz/sites/all/themes/scholarly_lite/logo.svg" );
+    
+});
