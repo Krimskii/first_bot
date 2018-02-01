@@ -9,7 +9,7 @@ const bot = new TelegramBot(TOKEN, {polling: true})
 
 const KB = {
 	news: emoji.get('newspaper') + ' Новости',
-	request: emoji.get('envelope') + ' Обращение',
+	request: emoji.get('envelope') + ' Обращения',
 	sendRequest: emoji.get('clipboard') + 'Отправить',
 	checkRequest: emoji.get('postbox') + 'Проверить',
 	readNews: emoji.get('newspaper') + ' Читать',
@@ -35,6 +35,7 @@ bot.on('message', msg => {
 			break
 		case KB.sendRequest:
 			applyRequestScreen(msg.chat.id)
+			applyFormScreen(msg.chat.id)
 			break
 		case KB.checkRequest:		
 			break
@@ -96,10 +97,10 @@ function applyRequestScreen(chatId) {
 				[KB.back]],
 				resize_keyboard: true,
 			}
-		})
+		});
 }
 
-bot.onText(/\/question/, function(msg, match) {
+function applyFormScreen(chatId) {
   var text = 'Что будет в inline menu?';
  
   var keyboardStr = JSON.stringify({
@@ -113,4 +114,4 @@ bot.onText(/\/question/, function(msg, match) {
  
   var keyboard = {reply_markup: JSON.parse(keyboardStr)};
   bot.sendMessage(msg.chat.id, text, keyboard);
-});
+}
