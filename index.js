@@ -51,7 +51,7 @@ bot.on('message', msg => {
 
 function sendGreeting(msg, sayHello = true) {
 	const text = sayHello
-	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы\nВаш ID ${msg.from.id}\nТип чата ${msg.chat.type}`
+	? `Добрый день, ${msg.from.first_name}\nВас приветствует БОТ общественной приемной акимата г.Алматы\nВаш ID ${msg.from.id}\nТип чата ${msg.chat.type}\nID чата ${msg.chat.id}`
 	: `Воспользуйтесь меню` + emoji.get('point_down')
 	bot.sendMessage(msg.chat.id, text, {
 		reply_markup: {
