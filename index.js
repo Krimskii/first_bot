@@ -98,3 +98,20 @@ function applyRequestScreen(chatId) {
 			}
 		})
 }
+
+bot.onText(/\/question/, function(msg, match) {
+  var text = 'Что будет в inline menu?';
+ 
+  var keyboardStr = JSON.stringify({
+      inline_keyboard: [
+        [
+          {text:'Поля',callback_data:'fields'},
+          {text:'Портал',url:'https://open-almaty.kz/'}
+        ]
+      ]
+  });
+ 
+  var keyboard = {reply_markup: JSON.parse(keyboardStr)};
+  bot.sendMessage(msg.chat.id, text, keyboard);
+});
+
