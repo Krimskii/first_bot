@@ -35,7 +35,7 @@ bot.on('message', msg => {
 			sendGreeting(msg, false)
 			break
 		case KB.sendRequest:
-			applyRequestScreen(msg.chat.id)
+			applyRequestForm(msg.chat.id)
 			break
 		case KB.checkRequest:		
 			break
@@ -103,19 +103,20 @@ function applyRequestScreen(chatId) {
 		})
 }
 
-bot.onText(/\/question/, function(msg, match) {
+function applyRequestForm(chatId) {
   var text = 'Что будет в inline menu?';
  
   var keyboardStr = JSON.stringify({
       inline_keyboard: [
         [
-          {text:'Поля',callback_data:'fields'},
-          {text:'Портал',url:'https://open-almaty.kz/'}
+          {text:'Запрос',callback_data:'fields'},
+          {text:'Ссылка',url:'https://open-almaty.kz/'},
+          {text:'Добавить номер', request_contact: true}
         ]
       ]
   });
  
   var keyboard = {reply_markup: JSON.parse(keyboardStr)};
   bot.sendMessage(msg.chat.id, text, keyboard);
-});
+};
 
