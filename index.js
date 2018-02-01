@@ -109,8 +109,8 @@ bot.onText(/\/question/, function(msg, match) {
   var keyboardStr = JSON.stringify({
       inline_keyboard: [
         [
-          [{text:'Запрос',callback_data:'fields'}],
-          [{text:'Ссылка',url:'https://open-almaty.kz/'}]
+          {text:'Запрос',callback_data:'fields'},
+          {text:'Ссылка',url:'https://open-almaty.kz/'}
         ]
       ]
   });
@@ -123,6 +123,10 @@ bot.onText(/\/help/, function(msg, match) {
   var text = 'Описание порядка рассмотрения обращений\nИнформация о боте\nИнформация о приемной';
   bot.sendMessage(msg.chat.id, text);
 });
+
+function requestFormScreen(chatId) {
+	bot.answerInlineQuery(inlineQueryId, results, [options])
+}
 
 /*
 
