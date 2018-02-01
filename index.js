@@ -104,7 +104,7 @@ function applyRequestScreen(chatId) {
 }
 
 bot.onText(/\/question/, function(msg, match) {
-  var text = 'Что будет в inline menu?';
+  var text = 'Пример использования inline menu';
  
   var keyboardStr = JSON.stringify({
       inline_keyboard: [
@@ -119,20 +119,9 @@ bot.onText(/\/question/, function(msg, match) {
   bot.sendMessage(msg.chat.id, text, keyboard);
 });
 
-bot.onText(/\/instruction/, function(msg, match) {
-  var text = 'Что будет в inline menu?';
- 
-  var keyboardStr = JSON.stringify({
-      inline_keyboard: [
-        [
-          {text:'Вопрос',callback_data:'fields'},
-          {text:'Ссылка',url:'https://open-almaty.kz/'}
-        ]
-      ]
-  });
- 
-  var keyboard = {reply_markup: JSON.parse(keyboardStr)};
-  bot.sendMessage(msg.chat.id, text, keyboard);
+bot.onText(/\/help/, function(msg, match) {
+  var text = 'Описание порядка рассмотрения обращений\nИнформация о боте\nИнформация о приемной';
+  bot.sendMessage(msg.chat.id, text);
 });
 
 /*
