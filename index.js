@@ -3,7 +3,10 @@ const TelegramBot = require('node-telegram-bot-api')
 
 const emoji = require('node-emoji')
 
-const TOKEN = '448727496:AAHLPsVhd272Elei-pM35kTKv6hVPuflHjQ'
+const TOKEN = process.env.TELEGRAM_TOKEN;
+if (!TOKEN) {
+  throw new Error('TELEGRAM_TOKEN environment variable is required');
+}
 
 const bot = new TelegramBot(TOKEN, {polling: true})
 
